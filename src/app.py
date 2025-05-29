@@ -14,7 +14,7 @@ app.url_map.strict_slashes = False
 CORS(app)
 
 # Create the jackson family object
-jackson_family = FamilyStructure("Jackson")
+jackson_family = FamilyStructure("Jackson") 
 
 
 # Handle/serialize errors like a JSON object
@@ -45,7 +45,7 @@ def add_member():
        return jsonify({'msg': 'the field first_name is obligatory' }),400
     if 'age' not in body:
        return jsonify({'msg': 'the field age is obligatory' }),400
-    if 'lucky_numbers' not in body and type(body['lucky_numbers']) != list:
+    if 'lucky_numbers' not in body or type(body['lucky_numbers']) != list:
        return jsonify({'msg': 'the field lucky_numbers is obligatory and it should be a list' }),400
     id = None
     if 'id' not in body:
