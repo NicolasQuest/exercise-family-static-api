@@ -50,7 +50,8 @@ class FamilyStructure:
         for index in range(0,len(self._members)):
             if self._members[index]['id'] == id:
                 self._members.pop(index)
-        return self._members    
+                return True
+        return False  
 
 
 
